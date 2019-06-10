@@ -1,0 +1,178 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <div class="row" *ngFor="let item of items">
+
+    <div class="col" >
+
+      <div class="tabs" >
+
+        <div class="tab">
+          <input type="checkbox" id="{{item.id}}">
+          <label class="tab-label" for="{{item.id}}">{{item.nombre}} </label>
+          <div class="tab-content">
+
+            <div class="row" *ngFor="let comida of comidas">
+
+              <div class="col" *ngIf="comida.item == item.id" >
+
+                <div class="tabs" >
+
+                  <div class="tab">
+                    <input type="checkbox" id="{{comida.id}}">
+                    <label class="tab-label" for="{{comida.id}}">{{comida.nombre}}</label>
+                    <div class="tab-content">
+
+                      <div *ngFor="let ingrediente of lista">
+                        <ion-row align-items-center *ngIf="ingrediente.id == comida.id">
+                         <ion-col>
+                           <b>{{ingrediente.nombre}}</b>
+                         </ion-col>
+                         <ion-col>
+                           <ion-input type="number" value="333"></ion-input>
+                         </ion-col>
+                         <ion-col>
+                           {{ingrediente.medida}}
+                         </ion-col>
+
+                         <ion-col>
+                           {{ingrediente.proteinas}}
+                         </ion-col>
+                         <ion-col>
+                           {{ingrediente.calorias}}
+                         </ion-col>
+                         <ion-col>
+                           <ion-button color="danger" (click)="removeItem(ingrediente)">X</ion-button>
+                           <ion-button color="primary" (click)="presentAlertPrompt()">COMMENT</ion-button>
+                         </ion-col>
+                       </ion-row>
+                      </div>
+
+                    </div>
+                  </div>
+
+
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+
+<!--
+  <ion-item>
+    <ion-label>Alimento</ion-label>
+    <ion-select placeholder="Selecciona el alimento" [(ngModel)]="alimentoSeleccionado" >
+      <ion-select-option *ngFor="let alimento of alimentos" value="{{alimento.id}}">{{alimento.nombre}}</ion-select-option>
+    </ion-select>
+   </ion-item>
+   <ion-button shape="round" expand="block" (click)="addItem()" fill="outline">Agregar</ion-button>
+
+   <br>
+
+   <ion-row align-items-center>
+    <ion-col>
+      Nombre
+    </ion-col>
+    <ion-col>
+      Cantidad
+    </ion-col>
+    <ion-col>
+      Medida
+    </ion-col>
+    <ion-col>
+      Proteinas
+    </ion-col>
+    <ion-col>
+      Calorias
+    </ion-col>
+    <ion-col>
+      Acciones
+    </ion-col>
+  </ion-row>
+
+    <br>
+
+    <div *ngFor="let item of lista">
+      <ion-row align-items-center>
+       <ion-col>
+         <b>{{item.nombre}}</b>
+       </ion-col>
+       <ion-col>
+         <ion-input type="number" value="333"></ion-input>
+       </ion-col>
+       <ion-col>
+         {{item.medida}}
+       </ion-col>
+
+       <ion-col>
+         {{item.proteinas}}
+       </ion-col>
+       <ion-col>
+         {{item.calorias}}
+       </ion-col>
+       <ion-col>
+         <ion-button color="danger" (click)="removeItem(item)">X</ion-button>
+         <ion-button color="primary" (click)="presentAlertPrompt()">COMMENT</ion-button>
+       </ion-col>
+     </ion-row>
+
+    </div>
+
+    <div *ngIf="lista.length == 0">
+      <ion-row align-items-center>
+        <ion-col>
+
+        </ion-col>
+        <ion-col>
+          No hay poductos agregados
+        </ion-col>
+        <ion-col>
+
+        </ion-col>
+      </ion-row>
+    </div>
+    <br>
+
+    <ion-row align-items-center>
+     <ion-col>
+       Total
+     </ion-col>
+     <ion-col>
+
+     </ion-col>
+     <ion-col>
+
+     </ion-col>
+     <ion-col>
+       {{proteinas}}
+     </ion-col>
+     <ion-col>
+       {{calorias}}
+     </ion-col>
+     <ion-col>
+
+     </ion-col>
+   </ion-row>
+
+-->
+</ion-content>
